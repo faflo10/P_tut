@@ -1,0 +1,12 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.NoActionBar">
+        <!-- Customize your theme here. -->
+    </style>
+    <style name="text_box" parent="@android:style/Widget.EditText">
+        <item name="android:background">#ffffffff</item>
+        <item name="android:textColor">#ff000000</item>
+    </style>
+
+</resources>

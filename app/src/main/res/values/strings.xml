@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Elethink_interface</string>
+
+    <string name="title">ELETHINK</string>
+    <string name="start_button">PLAY</string>
+    <string name="main_menu">Main menu</string>
+    <string name="play_button">Play</string>
+    <string name="listes">Lists</string>
+    <string name="settings">Settings</string>
+    <string name="whereabouts">About us</string>
+    <string name="play_title">Create game</string>
+    <string name="begin_game">Launch Game</string>
+    <string name="list_menu">Lists menu</string>
+    <string name="list_manage">Manage lists</string>
+    <string name="list_create">Create lists</string>
+    <string name="whereabouts_content">
+    "   Cette application a été développée par les soins de :\n
+        COINDET Florian
+        COLLUS Jean-Baptiste
+        SOTTIAUX Xavier\n
+    dans le cadre du projet tutoré de l'IUT informatique Lyon 1 Année spéciale
+    avec l'aide de :
+        Mme DESLANDRES Veronique."</string>
+    <string name="back">Back</string>
+    <string name="creation_title">Name of the list</string>
+
+</resources>
