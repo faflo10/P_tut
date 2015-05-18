@@ -32,8 +32,7 @@ public class Settings_menu extends ActionBarActivity{
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent back_menu = new Intent(Settings_menu.this, Start_menu.class);
-                startActivity(back_menu);
+                finish();
             }
         });
 
@@ -53,8 +52,7 @@ public class Settings_menu extends ActionBarActivity{
     public boolean onOptionsItemSelected(MenuItem item) {
         switch(item.getItemId()) {
             case R.id.back :
-                Intent back_intent = new Intent(Settings_menu.this, Start_menu.class);
-                startActivity(back_intent);
+                finish();
                 return true;
         }
         return false;

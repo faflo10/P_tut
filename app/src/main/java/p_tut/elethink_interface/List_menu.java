@@ -29,8 +29,7 @@ public class List_menu extends ActionBarActivity {
 
         back.setOnClickListener(new ImageButton.OnClickListener() {
             public void onClick (View v){
-                Intent back_act = new Intent(List_menu.this, Start_menu.class);
-                startActivity(back_act);
+                finish();
             }
         });
 
@@ -68,8 +67,7 @@ public class List_menu extends ActionBarActivity {
                 startActivity(creation);
                 return true;
             case R.id.back :
-                Intent back_intent = new Intent(List_menu.this, Start_menu.class);
-                startActivity(back_intent);
+                finish();
                 return true;
         }
         return false;

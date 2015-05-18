@@ -32,7 +32,7 @@ public class Start_menu extends ActionBarActivity {
         setContentView(R.layout.start_menu);
 
         //Création de la base de données.
-        local = new LocalListDb(getBaseContext(),"db_list.db",null,1);
+        local = new LocalListDb(getBaseContext(),"list.db",null,1);
         db = local.getWritableDatabase();
         db.setLockingEnabled(false);
         local.onCreate(db);
@@ -52,8 +52,7 @@ public class Start_menu extends ActionBarActivity {
 
         back.setOnClickListener(new View.OnClickListener() {
             public void onClick (View v){
-                Intent back_act = new Intent(Start_menu.this, MainActivity.class);
-                startActivity(back_act);
+                finish();
             }
         });
 
@@ -112,8 +111,7 @@ public class Start_menu extends ActionBarActivity {
                 startActivity(aboutus);
                 return true;
             case R.id.back :
-                Intent back_intent = new Intent(Start_menu.this, MainActivity.class);
-                startActivity(back_intent);
+                finish();
                 return true;
         }
         return false;

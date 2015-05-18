@@ -32,8 +32,7 @@ public class Manage_list extends ActionBarActivity {
 
         back.setOnClickListener(new ImageButton.OnClickListener() {
             public void onClick(View v) {
-                Intent back_intent = new Intent(Manage_list.this, List_menu.class);
-                startActivity(back_intent);
+                finish();
             }
         });
 

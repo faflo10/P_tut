@@ -47,39 +47,35 @@ public class Play_menu extends ActionBarActivity{
         launch = (Button) findViewById(R.id.button_launch_game);
         test = (Button) findViewById(R.id.test);
 
-        db = new LocalListDb(getBaseContext(),"db_list.db", null, 1);
-        SQLiteDatabase local = db.getReadableDatabase();
-        final SQLiteDatabase write = db.getWritableDatabase();
+        db = new LocalListDb(getBaseContext(),"list.db", null, 1);
+        final SQLiteDatabase local = db.getWritableDatabase();
+
 
         back.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent back_intent = new Intent(Play_menu.this,Start_menu.class);
-                startActivity(back_intent);
+                finish();
             }
         });
 
         test.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                write.execSQL("INSERT INTO list_listed VALUES (\"test\", \"test1\", \"test2\", \"test3\"");
+                local.execSQL("INSERT INTO list_listed VALUES (null,\"test\", \"test1\", \"test2\", \"test3\");");
             }
         });
 
         List<String> list = new ArrayList<String>();
 
-        Cursor nb_res = local.query("list_listed", new String[] {"count(id)"}, null, null, null, null, null, null);
-        int nb = nb_res.getInt(0);
-        int i;
-        Cursor res;
-        for(i=0; i<nb; i++) {
-            res = local.query("list_listed", new String [] {"id","name"}, "id=?",
-                    new String[] {String.valueOf(i)}, null, null, null, null);
-            list.add(String.valueOf(res.getInt(0)) + " - " + res.getString(1));
+        Cursor res = local.query("list_listed", new String [] {"id","name"}, null,
+                null, null, null, null, null);
+
+        int id_bd = res.getColumnIndex("id");
+        int name_bd = res.getColumnIndex("name");
+        while(res.moveToNext()) {
+            list.add(Integer.toString(res.getInt(id_bd)) + " - " + res.getString(name_bd));
         }
 
-
-
-
+        res.close();
 
         // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
@@ -126,8 +122,7 @@ public class Play_menu extends ActionBarActivity{
     public boolean onOptionsItemSelected(MenuItem item) {
         switch(item.getItemId()) {
             case R.id.back :
-                Intent back_intent = new Intent(Play_menu.this, Start_menu.class);
-                startActivity(back_intent);
+                finish();
                 return true;
         }
         return false;
