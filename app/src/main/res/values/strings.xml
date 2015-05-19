@@ -27,5 +27,11 @@
     <string name="keyword2">Keyword n.2</string>
     <string name="keyword3">Keyword n.3</string>
     <string name="next">Next</string>
+    <string name="filling">Filling list</string>
+    <string name="word1">Question</string>
+    <string name="word2">Answer</string>
+    <string name="another">Another 5</string>
+    <string name="submit">Submit</string>
+    <string name="man_server">Distant server</string>
 
 </resources>
