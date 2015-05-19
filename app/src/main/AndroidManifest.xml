@@ -23,6 +23,7 @@
         <activity android:name=".Settings_menu" />
         <activity android:name=".Manage_list" />
         <activity android:name=".Create_list" />
+        <activity android:name=".Fill_list"/>
     </application>
 
 </manifest>

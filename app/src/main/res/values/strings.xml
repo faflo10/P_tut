@@ -23,5 +23,9 @@
         Mme DESLANDRES Veronique."</string>
     <string name="back">Back</string>
     <string name="creation_title">Name of the list</string>
+    <string name="keyword1">Keyword n.1</string>
+    <string name="keyword2">Keyword n.2</string>
+    <string name="keyword3">Keyword n.3</string>
+    <string name="next">Next</string>
 
 </resources>
