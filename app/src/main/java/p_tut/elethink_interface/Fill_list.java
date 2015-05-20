@@ -1,5 +1,7 @@
 package p_tut.elethink_interface;
 
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.View;
@@ -7,6 +9,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
+
+import java.util.ArrayList;
+
+import p_tut.elethink_interface.local_database.LocalListDb;
 
 /**
  * Created by faflo10 on 19/05/15.
@@ -25,6 +31,10 @@ public class Fill_list extends ActionBarActivity {
     private EditText a5;
     private Button add5;
     private Button submit;
+    private LocalListDb db;
+    private ArrayList<String> questions;
+    private ArrayList<String> answers;
+    private SQLiteDatabase local;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,10 +58,31 @@ public class Fill_list extends ActionBarActivity {
                 EditText tabQ[] = {q1,q2,q3,q4,q5};
                 EditText tabA[] = {a1,a2,a3,a4,a5};
                 boolean ret = checkIfFormOk(tabQ,tabA);
+                int i=0;
                 if(ret) {
-                    Toast.makeText(getApplicationContext(),"OK",Toast.LENGTH_LONG).show();
+                    while(checkFull(tabQ[i]) && i<tabQ.length) {
+                        questions.add(tabQ[i].getText().toString());
+                        answers.add(tabA[i].getText().toString());
+                        i++;
+                    }
+
+                    String query1 = "INSERT INTO list_listed VALUES (null,\""+getIntent().getStringExtra("title")
+                            +"\",\""+getIntent().getStringExtra("kw1")+"\",\""+getIntent().getStringExtra("kw2")
+                            +"\",\""+getIntent().getStringExtra("kw3")+"\");";
+                    local.execSQL(query1);
+
+                    String query2 = "CREATE TABLE " + getIntent().getStringExtra("title") +
+                            " (num INTEGER PRIMARY KEY AUTOINCREMENT, question TEXT, " +
+                            "answer TEXT);";
+                    local.execSQL(query2);
+
+                    Toast.makeText(getApplicationContext(),
+                            "List created",Toast.LENGTH_LONG).show();
+
+                    //TODO : fill the list created
                 } else {
-                    Toast.makeText(getApplicationContext(),"nope",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(),
+                            "Form not correct",Toast.LENGTH_LONG).show();
                 }
             }
         });
@@ -103,5 +134,11 @@ public class Fill_list extends ActionBarActivity {
         a5 = (EditText) findViewById(R.id.a5);
         add5 = (Button) findViewById(R.id.five_more);
         submit = (Button) findViewById(R.id.submit);
+
+        questions = new ArrayList<>();
+        answers = new ArrayList<>();
+
+        db = new LocalListDb(getBaseContext(),"list.db", null, 1);
+        local = db.getWritableDatabase();
     }
 }

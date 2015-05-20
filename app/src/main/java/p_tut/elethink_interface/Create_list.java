@@ -2,6 +2,7 @@ package p_tut.elethink_interface;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -22,11 +23,13 @@ import p_tut.elethink_interface.local_database.*;
 public class Create_list extends ActionBarActivity {
     private ImageButton back;
     private LocalListDb local;
+    private SQLiteDatabase db;
     private EditText name;
     private EditText kw1;
     private EditText kw2;
     private EditText kw3;
     private Button next;
+
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,7 +49,7 @@ public class Create_list extends ActionBarActivity {
         next = (Button) findViewById(R.id.next);
 
         local = new LocalListDb(getBaseContext(),"list.db", null, 1);
-        SQLiteDatabase db = local.getWritableDatabase();
+        db = local.getWritableDatabase();
 
         back.setOnClickListener(new ImageButton.OnClickListener() {
             public void onClick(View v) {
@@ -57,16 +60,24 @@ public class Create_list extends ActionBarActivity {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(checkTitleField(name)) {
+                if(checkTitleField(name)) {                 //Verification qui ne marche pas !
                     if(checkKWField(kw1,kw2,kw3)) {
-                        Intent change = new Intent(Create_list.this,Fill_list.class);
-                        change.putExtra("title",name.getText().toString());
-                        change.putExtra("kw1", kw1.getText().toString());
-                        change.putExtra("kw2",kw2.getText().toString());
-                        change.putExtra("kw3",kw3.getText().toString());
-                        Toast.makeText(getApplicationContext(),"Heading to the filling of" +
-                                "the list", Toast.LENGTH_LONG).show();
-                        startActivity(change);
+                        Cursor result = db.query("sqlite_master", new String[] {"name"}, "type=? AND name=?",
+                                new String[] {"table",name.getText().toString()},null,null,null );
+                        int verif = result.getCount();
+                        if(verif == 0) {
+                            Intent change = new Intent(Create_list.this, Fill_list.class);
+                            change.putExtra("title", name.getText().toString());
+                            change.putExtra("kw1", kw1.getText().toString());
+                            change.putExtra("kw2", kw2.getText().toString());
+                            change.putExtra("kw3", kw3.getText().toString());
+                            Toast.makeText(getApplicationContext(), "Heading to the filling of" +
+                                    "the list", Toast.LENGTH_LONG).show();
+                            startActivity(change);
+                        } else {
+                            Toast.makeText(getApplicationContext(),"Nom de liste déjà pris !",
+                                    Toast.LENGTH_LONG).show();
+                        }
                     } else {
                         Toast.makeText(getApplicationContext(), "Error while filling the keywords",
                                 Toast.LENGTH_LONG).show();
