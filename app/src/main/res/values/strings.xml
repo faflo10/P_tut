@@ -33,5 +33,6 @@
     <string name="another">Another 5</string>
     <string name="submit">Submit</string>
     <string name="man_server">Distant server</string>
+    <string name="wipe">Wipe save</string>
 
 </resources>

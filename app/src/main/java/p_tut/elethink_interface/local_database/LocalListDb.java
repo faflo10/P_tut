@@ -40,3 +40,4 @@ public class LocalListDb extends SQLiteOpenHelper {
 
     }
 }
+

@@ -16,7 +16,7 @@ import android.widget.ImageButton;
 public class List_menu extends ActionBarActivity {
 
     ImageButton back;
-    Button manage_list, create_list;
+    Button manage_list, create_list, distant_server;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +26,7 @@ public class List_menu extends ActionBarActivity {
         back = (ImageButton) findViewById(R.id.back_button);
         manage_list = (Button) findViewById(R.id.manage_list_button);
         create_list = (Button) findViewById(R.id.create_list_button);
+        distant_server = (Button) findViewById(R.id.server);
 
         back.setOnClickListener(new ImageButton.OnClickListener() {
             public void onClick (View v){
@@ -46,6 +47,7 @@ public class List_menu extends ActionBarActivity {
                 startActivity(creation);
             }
         });
+
     }
 
     @Override

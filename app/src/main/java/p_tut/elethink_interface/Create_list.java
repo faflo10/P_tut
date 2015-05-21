@@ -60,34 +60,48 @@ public class Create_list extends ActionBarActivity {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(checkTitleField(name)) {                 //Verification qui ne marche pas !
-                    if(checkKWField(kw1,kw2,kw3)) {
+                if(checkTitleField(name)) {             //Verif si le nom existe
+                    if(checkKWField(kw1,kw2,kw3)) {     //Verif si les mots-clés existent
+                        //Vérification si une liste n'a pas déjà le même nom
                         Cursor result = db.query("sqlite_master", new String[] {"name"}, "type=? AND name=?",
-                                new String[] {"table",name.getText().toString()},null,null,null );
+                                new String[] {"table",name.getText().toString().replaceAll("\\s+$","")},null,null,null );
                         int verif = result.getCount();
-                        if(verif == 0) {
+                        System.out.println(verif);
+                        if(verif == 0) {    //Si aucune liste n'a le même nom
                             Intent change = new Intent(Create_list.this, Fill_list.class);
                             change.putExtra("title", name.getText().toString());
                             change.putExtra("kw1", kw1.getText().toString());
                             change.putExtra("kw2", kw2.getText().toString());
                             change.putExtra("kw3", kw3.getText().toString());
                             Toast.makeText(getApplicationContext(), "Heading to the filling of" +
-                                    "the list", Toast.LENGTH_LONG).show();
-                            startActivity(change);
+                                    " the list", Toast.LENGTH_SHORT).show();
+                            startActivityForResult(change, 42);
                         } else {
+                            name.setText("");
                             Toast.makeText(getApplicationContext(),"Nom de liste déjà pris !",
-                                    Toast.LENGTH_LONG).show();
+                                    Toast.LENGTH_SHORT).show();
                         }
                     } else {
                         Toast.makeText(getApplicationContext(), "Error while filling the keywords",
-                                Toast.LENGTH_LONG).show();
+                                Toast.LENGTH_SHORT).show();
                     }
                 } else {
                     Toast.makeText(getApplicationContext(), "Error while filling the title",
-                            Toast.LENGTH_LONG).show();
+                            Toast.LENGTH_SHORT).show();
                 }
             }
         });
+    }
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if(requestCode == 42) {
+            if(resultCode == 1) {
+                name.setText(getIntent().getStringExtra("title"));
+                kw1.setText(getIntent().getStringExtra("kw1"));
+                kw2.setText(getIntent().getStringExtra("kw2"));
+                kw3.setText(getIntent().getStringExtra("kw3"));
+            }
+        }
     }
 
     public boolean checkTitleField(EditText title) {

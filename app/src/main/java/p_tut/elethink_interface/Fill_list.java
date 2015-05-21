@@ -1,5 +1,6 @@
 package p_tut.elethink_interface;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -48,6 +49,12 @@ public class Fill_list extends ActionBarActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent ret = new Intent();
+                ret.putExtra("title",getIntent().getStringExtra("title"));
+                ret.putExtra("kw1",getIntent().getStringExtra("kw1"));
+                ret.putExtra("kw2",getIntent().getStringExtra("kw2"));
+                ret.putExtra("kw3",getIntent().getStringExtra("kw3"));
+                setResult(1);
                 finish();
             }
         });
@@ -59,19 +66,22 @@ public class Fill_list extends ActionBarActivity {
                 EditText tabA[] = {a1,a2,a3,a4,a5};
                 boolean ret = checkIfFormOk(tabQ,tabA);
                 int i=0;
-                if(ret) {
-                    while(checkFull(tabQ[i]) && i<tabQ.length) {
+                if(ret) {                                           //Si le formulaire est bien rempli
+                    while(checkFull(tabQ[i]) && i<tabQ.length) {    //On remplit les listes avec les inputs
                         questions.add(tabQ[i].getText().toString());
                         answers.add(tabA[i].getText().toString());
                         i++;
                     }
 
-                    String query1 = "INSERT INTO list_listed VALUES (null,\""+getIntent().getStringExtra("title")
+                    //On insere le titre et les mots-clés dans la table de listes
+                    String query1 = "INSERT INTO list_listed VALUES (null,\""+
+                            getIntent().getStringExtra("title").replaceAll("\\s+$","")
                             +"\",\""+getIntent().getStringExtra("kw1")+"\",\""+getIntent().getStringExtra("kw2")
                             +"\",\""+getIntent().getStringExtra("kw3")+"\");";
                     local.execSQL(query1);
 
-                    String query2 = "CREATE TABLE " + getIntent().getStringExtra("title") +
+                    //On créé une table pour la nouvelle liste
+                    String query2 = "CREATE TABLE " + getIntent().getStringExtra("title").replaceAll("\\s+$","") +
                             " (num INTEGER PRIMARY KEY AUTOINCREMENT, question TEXT, " +
                             "answer TEXT);";
                     local.execSQL(query2);
@@ -142,3 +152,4 @@ public class Fill_list extends ActionBarActivity {
         local = db.getWritableDatabase();
     }
 }
+// st.replaceAll("\\s+$","")
