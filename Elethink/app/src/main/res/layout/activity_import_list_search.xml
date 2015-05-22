@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@color/blue">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/frame_top"
+        android:id="@+id/frameLayout">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Searching list"
+            android:layout_gravity="center"
+            android:textSize="@dimen/font_size_subtitle"
+            android:textColor="@color/light_blue"
+            android:textStyle="bold"/>
+
+        <ImageButton
+            android:contentDescription="Fleche_retour"
+            android:id="@+id/back_button"
+            android:layout_width="40dp"
+            android:layout_height="56dp"
+            android:src="@drawable/back_icon_blue"
+            android:background="@color/blue"
+            android:paddingTop="2dp"
+            android:layout_marginTop="2dp"/>
+    </FrameLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:background="@drawable/button_menu_shape"
+        android:text="@string/search_list"
+        android:textColor="@color/light_blue"
+        android:padding="5dp"
+        android:id="@+id/button_search"
+        android:layout_gravity="center_horizontal"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/text_search"
+        android:layout_marginBottom="62dp"
+        android:layout_above="@+id/button_search"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+</RelativeLayout>

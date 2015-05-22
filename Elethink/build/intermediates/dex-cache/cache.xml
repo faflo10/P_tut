@@ -2,6 +2,7 @@
 <items version="2" >
 
     <item
+<<<<<<< HEAD
         jar="C:\Users\faflo10\Documents\Cours_IUT (2014_2015)\P_tut\Appli\P_tut\Elethink\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\classes.jar"
         jumboMode="false"
         revision="21.1.2"
@@ -28,6 +29,34 @@
         revision="21.1.2"
         sha1="81d42bf983a8741f4888a6e333e454e4a5e0eeb7">
         <dex dex="C:\Users\faflo10\Documents\Cours_IUT (2014_2015)\P_tut\Appli\P_tut\Elethink\app\build\intermediates\pre-dexed\debug\classes-186b6003abd76afff2858098e30df117f185376f.jar" />
+=======
+        jar="/home/vaxz/IUT_info_cours/Projet_tuteure/P_tut/Elethink/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/libs/internal_impl-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
+        <dex dex="/home/vaxz/IUT_info_cours/Projet_tuteure/P_tut/Elethink/app/build/intermediates/pre-dexed/debug/internal_impl-21.0.3-30d38b5d56466569873646098835b86359993d7e.jar" />
+    </item>
+    <item
+        jar="/home/vaxz/IUT_info_cours/Projet_tuteure/P_tut/Elethink/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="81d42bf983a8741f4888a6e333e454e4a5e0eeb7">
+        <dex dex="/home/vaxz/IUT_info_cours/Projet_tuteure/P_tut/Elethink/app/build/intermediates/pre-dexed/debug/classes-0f93bb7d697c0ff6f5600667d88fdfb6896b4829.jar" />
+    </item>
+    <item
+        jar="/home/vaxz/IUT_info_cours/Projet_tuteure/P_tut/Elethink/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
+        <dex dex="/home/vaxz/IUT_info_cours/Projet_tuteure/P_tut/Elethink/app/build/intermediates/pre-dexed/debug/classes-773dfd0e490f9a67f2ff25ac5b4afb2937460b83.jar" />
+    </item>
+    <item
+        jar="/home/vaxz/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/21.0.3/support-annotations-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
+        <dex dex="/home/vaxz/IUT_info_cours/Projet_tuteure/P_tut/Elethink/app/build/intermediates/pre-dexed/debug/support-annotations-21.0.3-c8e651e9c8e2bf1762567b1f43755efe4d32da66.jar" />
+>>>>>>> origin/master
     </item>
 
 </items>
