@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
+import p_tut.elethink_interface.Import_Export.Import_Export_List;
+
 /**
  * Created by faflo10 on 12/03/2015.
  */
@@ -45,6 +47,14 @@ public class List_menu extends ActionBarActivity {
             public void onClick (View v) {
                 Intent creation = new Intent(List_menu.this, Create_list.class);
                 startActivity(creation);
+            }
+        });
+
+        distant_server.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent server = new Intent(getApplicationContext(), Import_Export_List.class);
+                startActivity(server);
             }
         });
 

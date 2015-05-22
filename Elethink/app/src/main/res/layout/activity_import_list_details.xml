@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:focusableInTouchMode="true"
+    android:background="@color/blue">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/frame_top"
+        android:id="@+id/frameLayout">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="List details"
+            android:layout_gravity="center"
+            android:textSize="@dimen/font_size_subtitle"
+            android:textColor="@color/light_blue"
+            android:textStyle="bold"/>
+
+        <ImageButton
+            android:contentDescription="Fleche_retour"
+            android:id="@+id/back_button"
+            android:layout_width="40dp"
+            android:layout_height="56dp"
+            android:src="@drawable/back_icon_blue"
+            android:background="@color/blue"
+            android:paddingTop="2dp"
+            android:layout_marginTop="2dp"/>
+    </FrameLayout>
+
+    <!-- Product id (pid) - will be HIDDEN - used to pass to other activity -->
+    <TextView
+        android:id="@+id/idListe"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/light_blue"
+        android:visibility="gone" />
+
+    <!-- Name Label -->
+    <TextView
+        android:id="@+id/titreListe"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/light_blue"
+        android:paddingTop="6dip"
+        android:paddingLeft="6dip"
+        android:textSize="17dip"
+        android:textStyle="bold"
+        android:layout_marginTop="80dp" />
+
+    <TextView
+        android:id="@+id/mot_clef1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/light_blue"
+        android:paddingTop="6dip"
+        android:paddingLeft="6dip"
+        android:textSize="17dip"
+        android:textStyle="bold"
+        android:layout_marginTop="80dp"
+        android:layout_gravity="center_horizontal"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/mot_clef2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/light_blue"
+        android:paddingTop="6dip"
+        android:paddingLeft="6dip"
+        android:textSize="17dip"
+        android:textStyle="bold"
+        android:layout_marginTop="80dp"
+        android:layout_gravity="center_horizontal"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/mot_clef3"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/light_blue"
+        android:paddingTop="6dip"
+        android:paddingLeft="6dip"
+        android:textSize="17dip"
+        android:textStyle="bold"
+        android:layout_marginTop="80dp"
+        android:layout_gravity="center_horizontal"
+        android:visibility="gone"/>
+
+</LinearLayout>

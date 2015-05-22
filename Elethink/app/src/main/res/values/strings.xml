@@ -34,5 +34,7 @@
     <string name="submit">Submit</string>
     <string name="man_server">Distant server</string>
     <string name="wipe">Wipe save</string>
-
+    <string name="import_list">Import list</string>
+    <string name="export_list">Export list</string>
+    <string name="search_list">Search list</string>
 </resources>

@@ -24,6 +24,10 @@
         <activity android:name=".Manage_list" />
         <activity android:name=".Create_list" />
         <activity android:name=".Fill_list"/>
+        <activity android:name=".Import_Export.Import_Export_List"/>
+        <activity android:name=".Import_Export.Import_List_Search"/>
+        <activity android:name=".Import_Export.Export_list"/>
+
     </application>
 
 </manifest>
