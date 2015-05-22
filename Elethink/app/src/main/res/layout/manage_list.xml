@@ -29,17 +29,33 @@
             android:layout_marginTop="2dp"/>
     </FrameLayout>
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/frameLayout">
+        android:layout_below="@+id/frameLayout"
+        android:orientation="horizontal">
 
-        <Spinner
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/spinner_list"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="40dp" />
-    </RelativeLayout>
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:paddingBottom="40dp">
+            <Spinner
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/spinner_list" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/erase"
+                android:background="@drawable/button_menu_shape"
+                android:text="@string/erase"
+                android:textColor="@color/light_blue"
+                android:layout_marginTop="20dp"/>
+        </LinearLayout>
+    </LinearLayout>
 
 </RelativeLayout>

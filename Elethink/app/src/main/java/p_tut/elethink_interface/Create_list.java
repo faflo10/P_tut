@@ -41,12 +41,7 @@ public class Create_list extends ActionBarActivity {
         super.onStart();
         setContentView(R.layout.create_list);
 
-        back = (ImageButton) findViewById(R.id.back_button);
-        name = (EditText) findViewById(R.id.name);
-        kw1 = (EditText) findViewById(R.id.kw1);
-        kw2 = (EditText) findViewById(R.id.kw2);
-        kw3 = (EditText) findViewById(R.id.kw3);
-        next = (Button) findViewById(R.id.next);
+        initComponents();
 
         local = new LocalListDb(getBaseContext(),"list.db", null, 1);
         db = local.getWritableDatabase();
@@ -57,6 +52,7 @@ public class Create_list extends ActionBarActivity {
             }
         });
 
+        //TODO Patch the error when inserting spaces in title name;
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -94,6 +90,8 @@ public class Create_list extends ActionBarActivity {
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        initComponents();
+
         if(requestCode == 42) {
             if(resultCode == 1) {
                 name.setText(getIntent().getStringExtra("title"));
@@ -122,6 +120,15 @@ public class Create_list extends ActionBarActivity {
             }
         }
         return false;
+    }
+
+    public void initComponents() {
+        back = (ImageButton) findViewById(R.id.back_button);
+        name = (EditText) findViewById(R.id.name);
+        kw1 = (EditText) findViewById(R.id.kw1);
+        kw2 = (EditText) findViewById(R.id.kw2);
+        kw3 = (EditText) findViewById(R.id.kw3);
+        next = (Button) findViewById(R.id.next);
     }
 
 }

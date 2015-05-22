@@ -32,9 +32,6 @@ public class Play_menu extends ActionBarActivity{
     private Spinner spinner;
     private LocalListDb db;
 
-    private Button test;
-
-
     //onCreate method, launched at the moment the intent in called
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +42,6 @@ public class Play_menu extends ActionBarActivity{
         back = (ImageButton) findViewById(R.id.back_button);
         spinner = (Spinner) findViewById(R.id.spinner_list);
         launch = (Button) findViewById(R.id.button_launch_game);
-        test = (Button) findViewById(R.id.test);
 
         db = new LocalListDb(getBaseContext(),"list.db", null, 1);
         final SQLiteDatabase local = db.getWritableDatabase();
@@ -57,15 +53,9 @@ public class Play_menu extends ActionBarActivity{
             }
         });
 
-        test.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                local.execSQL("INSERT INTO list_listed VALUES (null,\"test\", \"test1\", \"test2\", \"test3\");");
-            }
-        });
-
         List<String> list = new ArrayList<String>();
 
+        //Remplissage du spinner de manière dynamique grâce à la base de données.
         Cursor res = local.query("list_listed", new String [] {"id","name"}, null,
                 null, null, null, null, null);
 

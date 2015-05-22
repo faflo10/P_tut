@@ -2,32 +2,32 @@
 <items version="2" >
 
     <item
-        jar="/home/vaxz/IUT_info_cours/Projet_tuteure/P_tut/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/classes.jar"
+        jar="C:\Users\faflo10\Documents\Cours_IUT (2014_2015)\P_tut\Appli\P_tut\Elethink\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\classes.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
-        <dex dex="/home/vaxz/IUT_info_cours/Projet_tuteure/P_tut/app/build/intermediates/pre-dexed/debug/classes-3433dd61134031af67f127388022c869bfa4c65f.jar" />
+        <dex dex="C:\Users\faflo10\Documents\Cours_IUT (2014_2015)\P_tut\Appli\P_tut\Elethink\app\build\intermediates\pre-dexed\debug\classes-d4d2d307bb43cda34341d2100d38196f794717d5.jar" />
     </item>
     <item
-        jar="/home/vaxz/IUT_info_cours/Projet_tuteure/P_tut/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="81d42bf983a8741f4888a6e333e454e4a5e0eeb7">
-        <dex dex="/home/vaxz/IUT_info_cours/Projet_tuteure/P_tut/app/build/intermediates/pre-dexed/debug/classes-88f4239ac530654a20ce23d3d3ebce0c5884c766.jar" />
-    </item>
-    <item
-        jar="/home/vaxz/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/21.0.3/support-annotations-21.0.3.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
-        <dex dex="/home/vaxz/IUT_info_cours/Projet_tuteure/P_tut/app/build/intermediates/pre-dexed/debug/support-annotations-21.0.3-c8e651e9c8e2bf1762567b1f43755efe4d32da66.jar" />
-    </item>
-    <item
-        jar="/home/vaxz/IUT_info_cours/Projet_tuteure/P_tut/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/libs/internal_impl-21.0.3.jar"
+        jar="C:\Users\faflo10\Documents\Cours_IUT (2014_2015)\P_tut\Appli\P_tut\Elethink\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\libs\internal_impl-21.0.3.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
-        <dex dex="/home/vaxz/IUT_info_cours/Projet_tuteure/P_tut/app/build/intermediates/pre-dexed/debug/internal_impl-21.0.3-9b2a49837837869a9ad9d519a0f2d898a10f9442.jar" />
+        <dex dex="C:\Users\faflo10\Documents\Cours_IUT (2014_2015)\P_tut\Appli\P_tut\Elethink\app\build\intermediates\pre-dexed\debug\internal_impl-21.0.3-8ee433b1ceb98ee3e995cac82cadd7234a5ee886.jar" />
+    </item>
+    <item
+        jar="C:\Users\faflo10\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\21.0.3\support-annotations-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
+        <dex dex="C:\Users\faflo10\Documents\Cours_IUT (2014_2015)\P_tut\Appli\P_tut\Elethink\app\build\intermediates\pre-dexed\debug\support-annotations-21.0.3-3341c876b074a5f83ffbe8b17813889f4aeea598.jar" />
+    </item>
+    <item
+        jar="C:\Users\faflo10\Documents\Cours_IUT (2014_2015)\P_tut\Appli\P_tut\Elethink\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\21.0.3\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="81d42bf983a8741f4888a6e333e454e4a5e0eeb7">
+        <dex dex="C:\Users\faflo10\Documents\Cours_IUT (2014_2015)\P_tut\Appli\P_tut\Elethink\app\build\intermediates\pre-dexed\debug\classes-186b6003abd76afff2858098e30df117f185376f.jar" />
     </item>
 
 </items>
