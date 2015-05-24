@@ -16,31 +16,57 @@
 
         if ( !empty($_POST['motsSaisis']) ){
 
-            /*
-                $tabNomListe=explode("|",$_SESSION['nomListe']);
-                enventuellement gérer le passage d'un tableau de mot
-            */
+            $tabMotsSaisis=explode("|",$_POST['motsSaisis']);
+            
 
 
-            //chercher la liste envoyé dans la base de donnée
+            //chercher les listes souhaités dans la base de donnée
             $query0=$bdd->prepare(
                                     'SELECT * FROM LISTE
-                                    WHERE Titre LIKE ?
-                                          OR Mot_clef1 LIKE ?
-                                          OR Mot_clef2 LIKE ?
-                                          OR Mot_clef3 LIKE ?
+                                    WHERE Titre LIKE lower(?)
+                                          OR lower(Mot_clef1) LIKE lower(?)
+                                          OR lower(Mot_clef2) LIKE lower(?)
+                                          OR lower(Mot_clef3) LIKE lower(?)
                                  ');
-            
-            $query0->execute( array('%'.$_POST['motsSaisis'].'%' , '%'.$_POST['motsSaisis'].'%' , '%'.$_POST['motsSaisis'].'%' ,
-                                    '%'.$_POST['motsSaisis'].'%' ) );
 
-            while( $data0=$query0->fetch() ){
+            $init_tab=0;
+            foreach ($tabMotsSaisis as $mot) {
 
-                  $response["liste"][]=array(
-                                              'idListe' => $data0['Identifiant_liste'],
-                                              'titre' => $data0['Titre']
-                                            );
-            }
+              $query0->execute( array('%'.$mot.'%' , '%'.$mot.'%' , '%'.$mot.'%' ,'%'.$mot.'%' ) );
+
+              while( $data0=$query0->fetch()  ){
+
+                if($init_tab==0){
+
+                    $response["liste"][]=array(
+                                                  'idListe' => $data0['Identifiant_liste'],
+                                                  'titre' => $data0['Titre'],
+                                                  'motClef1' => $data0['Mot_clef1'],
+                                                  'motClef2' => $data0['Mot_clef2'],
+                                                  'motClef3' => $data0['Mot_clef3']
+                                                );
+                    $init_tab=1;
+
+                }else{
+                //si le tableau est initialisé, il faut éviter d'insérer des doublons dans le tableau "resultat"
+                    for( $i=0; $i<count($response["liste"]) && $response["liste"][$i]['titre']!= $data0['Titre']; $i++  );
+
+                    if( $i==count($response["liste"]) ){
+
+                        $response["liste"][]=array(
+                                                    'idListe' => $data0['Identifiant_liste'],
+                                                    'titre' => $data0['Titre'],
+                                                    'motClef1' => $data0['Mot_clef1'],
+                                                    'motClef2' => $data0['Mot_clef2'],
+                                                    'motClef3' => $data0['Mot_clef3']
+                                                  );
+                    }
+                }
+
+              }
+              $query0->closeCursor();
+              
+            } 
 
             if ( empty($response["liste"]) ){
 

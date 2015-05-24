@@ -34,6 +34,7 @@
                                      'reponse' => $data0['Reponse']
                                  );
             }
+            $query0->closeCursor();
                  
 
             if ( empty($mots) ){

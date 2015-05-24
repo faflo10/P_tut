@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="p_tut.elethink_interface" >
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="p_tut.elethink_interface.MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="p_tut.elethink_interface.Start_menu"/>
+        <activity android:name="p_tut.elethink_interface.Play_menu" />
+        <activity android:name="p_tut.elethink_interface.List_menu" />
+        <activity android:name="p_tut.elethink_interface.Whereabout_menu" />
+        <activity android:name="p_tut.elethink_interface.Settings_menu" />
+        <activity android:name="p_tut.elethink_interface.Manage_list" />
+        <activity android:name="p_tut.elethink_interface.Create_list" />
+        <activity android:name="p_tut.elethink_interface.Fill_list"/>
+        <activity android:name="p_tut.elethink_interface.Import_Export.Import_Export_List"/>
+        <activity android:name="p_tut.elethink_interface.Import_Export.Import_List_Search"/>
+        <activity android:name="p_tut.elethink_interface.Import_Export.Import_List_Result"/>
+        <activity android:name="p_tut.elethink_interface.Import_Export.Export_List_Result"/>
+
+    </application>
+    <uses-permission android:name="android.permission.INTERNET" />
+
+
+</manifest>
