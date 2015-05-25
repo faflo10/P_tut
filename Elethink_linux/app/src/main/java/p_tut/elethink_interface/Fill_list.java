@@ -53,7 +53,7 @@ public class Fill_list extends ActionBarActivity {
                 ret.putExtra("kw1",getIntent().getStringExtra("kw1"));
                 ret.putExtra("kw2",getIntent().getStringExtra("kw2"));
                 ret.putExtra("kw3",getIntent().getStringExtra("kw3"));
-                setResult(1);
+                setResult(RESULT_CANCELED,ret);
                 finish();
             }
         });
@@ -88,6 +88,8 @@ public class Fill_list extends ActionBarActivity {
                     Toast.makeText(getApplicationContext(),
                             "List created",Toast.LENGTH_LONG).show();
 
+                    setResult(RESULT_OK);
+                    finish();
                     //TODO : fill the list created
                 } else {
                     Toast.makeText(getApplicationContext(),
@@ -96,6 +98,24 @@ public class Fill_list extends ActionBarActivity {
             }
         });
 
+        add5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EditText tabQ[] = {q1,q2,q3,q4,q5};
+                EditText tabA[] = {a1,a2,a3,a4,a5};
+                if(checkIfFormFull(tabQ,tabA)) {
+                    for(int i = 0; i<tabQ.length ; i++) {
+                        questions.add(tabQ[i].getText().toString().replaceAll("\\s+$",""));
+                        answers.add(tabA[i].getText().toString().replaceAll("\\s+$",""));
+                        tabQ[i].setText("");
+                        tabA[i].setText("");
+                    }
+                } else {
+                    Toast.makeText(getApplicationContext(),"Fill all the inputs before asking for more !",
+                            Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
     public boolean checkFull(EditText et) {
@@ -126,6 +146,13 @@ public class Fill_list extends ActionBarActivity {
             }
         }
 
+        return true;
+    }
+
+    public boolean checkIfFormFull(EditText[] tabQ, EditText[] tabA) {
+        for(int i = 0; i<tabQ.length ; i++) {
+            if(!checkPairInput(tabQ[i],tabA[i])) return false;
+        }
         return true;
     }
 

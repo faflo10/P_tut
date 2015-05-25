@@ -32,7 +32,7 @@ public class Manage_list extends ActionBarActivity {
         setContentView(R.layout.manage_list);
 
         db = new LocalListDb(getBaseContext(),"list.db", null, 1);
-        SQLiteDatabase local = db.getWritableDatabase();
+        final SQLiteDatabase local = db.getWritableDatabase();
 
         back = (ImageButton) findViewById(R.id.back_button);
         erase = (Button) findViewById(R.id.erase);
@@ -83,9 +83,19 @@ public class Manage_list extends ActionBarActivity {
         erase.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String content = spin.getSelectedItem().toString();     //Gérer le cas où le spinner est vide.
+            if(spin.getSelectedItem() == null) {
+                Toast.makeText(getApplicationContext(),"Choose a list to delete",Toast.LENGTH_SHORT).show();
+            } else {
+                String content = spin.getSelectedItem().toString();
                 content = content.substring(0,content.indexOf(" - "));
-                System.out.println(content);
+                Cursor c_name = local.query("list_listed",new String[] {"name"},"id = ?",
+                        new String[] {content},null,null,null);
+                int i_name = c_name.getColumnIndex("name");
+                c_name.moveToNext();
+                String res_name = c_name.getString(i_name);
+                local.execSQL("DROP TABLE '" + res_name+"';");
+                local.execSQL("DELETE FROM list_listed WHERE name='"+res_name+"';");
+            }
             }
         });
     }

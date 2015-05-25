@@ -1,5 +1,6 @@
 package p_tut.elethink_interface;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -90,12 +91,14 @@ public class Create_list extends ActionBarActivity {
         initComponents();
 
         if(requestCode == 42) {
-            if(resultCode == 1) {
+            if(resultCode == Activity.RESULT_CANCELED) {
                 name.setText(getIntent().getStringExtra("title"));
                 kw1.setText(getIntent().getStringExtra("kw1"));
                 kw2.setText(getIntent().getStringExtra("kw2"));
                 kw3.setText(getIntent().getStringExtra("kw3"));
             }
+        } else if(resultCode == Activity.RESULT_OK) {
+            finish();
         }
     }
 

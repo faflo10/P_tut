@@ -79,7 +79,7 @@ public class Settings_menu extends ActionBarActivity{
                             " name TEXT, keyword_1 TEXT, keyword_2 TEXT, keyword_3 TEXT);";
                     db.execSQL(strReq);
 
-                    Toast.makeText(getApplicationContext(),"Save wiped",Toast.LENGTH_SHORT);
+                    Toast.makeText(getApplicationContext(),"Save wiped",Toast.LENGTH_SHORT).show();
                 }
             }
         });
