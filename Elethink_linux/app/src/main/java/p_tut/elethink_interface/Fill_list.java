@@ -71,26 +71,32 @@ public class Fill_list extends ActionBarActivity {
                         answers.add(tabA[i].getText().toString());
                         i++;
                     }
+                    String title_table = getIntent().getStringExtra("title").replaceAll("\\s+$","");
+                    String kw1_table = getIntent().getStringExtra("kw1");
+                    String kw2_table = getIntent().getStringExtra("kw2");
+                    String kw3_table = getIntent().getStringExtra("kw3");
 
                     //On insere le titre et les mots-clés dans la table de listes
                     String query1 = "INSERT INTO list_listed VALUES (null,\""+
-                            getIntent().getStringExtra("title").replaceAll("\\s+$","")
-                            +"\",\""+getIntent().getStringExtra("kw1")+"\",\""+getIntent().getStringExtra("kw2")
-                            +"\",\""+getIntent().getStringExtra("kw3")+"\");";
+                            title_table
+                            +"\",\""+kw1_table+"\",\""+kw2_table
+                            +"\",\""+kw3_table+"\");";
                     local.execSQL(query1);
 
                     //On créé une table pour la nouvelle liste
-                    String query2 = "CREATE TABLE " + getIntent().getStringExtra("title").replaceAll("\\s+$","") +
-                            " (num INTEGER PRIMARY KEY AUTOINCREMENT, question TEXT, " +
+                    String query2 = "CREATE TABLE \"" + title_table +
+                            "\" (num INTEGER PRIMARY KEY AUTOINCREMENT, question TEXT, " +
                             "answer TEXT);";
                     local.execSQL(query2);
 
+                    //TODO : fill the list created
+                    
                     Toast.makeText(getApplicationContext(),
                             "List created",Toast.LENGTH_LONG).show();
 
                     setResult(RESULT_OK);
                     finish();
-                    //TODO : fill the list created
+
                 } else {
                     Toast.makeText(getApplicationContext(),
                             "Form not correct",Toast.LENGTH_LONG).show();
