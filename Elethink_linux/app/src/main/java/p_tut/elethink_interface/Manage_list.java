@@ -1,5 +1,6 @@
 package p_tut.elethink_interface;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -83,19 +84,26 @@ public class Manage_list extends ActionBarActivity {
         erase.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            if(spin.getSelectedItem() == null) {
-                Toast.makeText(getApplicationContext(),"Choose a list to delete",Toast.LENGTH_SHORT).show();
-            } else {
-                String content = spin.getSelectedItem().toString();
-                content = content.substring(0,content.indexOf(" - "));
-                Cursor c_name = local.query("list_listed",new String[] {"name"},"id = ?",
-                        new String[] {content},null,null,null);
-                int i_name = c_name.getColumnIndex("name");
-                c_name.moveToNext();
-                String res_name = c_name.getString(i_name);
-                local.execSQL("DROP TABLE '" + res_name+"';");
-                local.execSQL("DELETE FROM list_listed WHERE name='"+res_name+"';");
-            }
+                if(spin.getSelectedItem() == null) {
+                    Toast.makeText(getApplicationContext(),"Choose a list to delete",Toast.LENGTH_SHORT).show();
+                } else {
+                    String content = spin.getSelectedItem().toString();
+                    content = content.substring(0,content.indexOf(" - "));
+                    Cursor c_name = local.query("list_listed",new String[] {"name"},"id = ?",
+                            new String[] {content},null,null,null);
+                    int i_name = c_name.getColumnIndex("name");
+                    c_name.moveToNext();
+                    String res_name = c_name.getString(i_name);
+                    local.execSQL("DROP TABLE '" + res_name+"';");
+                    local.execSQL("DELETE FROM list_listed WHERE name='"+res_name+"';");
+
+                    //Bloc permettant de rafraîchir l'activité
+                    Intent refresh = getIntent();
+                    refresh.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION); //Enlève l'animation de refresh
+                    finish();
+                    startActivity(refresh);
+                    overridePendingTransition(0,0); //Enlève mieux l'animation de refresh
+                }
             }
         });
     }

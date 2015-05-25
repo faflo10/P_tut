@@ -90,7 +90,7 @@ public class Fill_list extends ActionBarActivity {
                     local.execSQL(query2);
 
                     //TODO : fill the list created
-                    
+
                     Toast.makeText(getApplicationContext(),
                             "List created",Toast.LENGTH_LONG).show();
 

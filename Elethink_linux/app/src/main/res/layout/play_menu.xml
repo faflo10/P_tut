@@ -43,6 +43,13 @@
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true">
 
+            <Spinner
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/spinner_list"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="40dp" />
+
             <Button
                 android:layout_width="110dp"
                 android:layout_height="60dp"
@@ -50,25 +57,9 @@
                 android:background="@drawable/button_menu_shape"
                 android:text="@string/begin_game"
                 android:textColor="@color/light_blue"
-                android:id="@+id/button_launch_game"/>
+                android:id="@+id/button_launch_game"
+                android:layout_below="@id/spinner_list"/>
 
-            <Spinner
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/spinner_list"
-                android:layout_below="@id/button_launch_game"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="40dp" />
-
-            <Button
-                android:layout_width="110dp"
-                android:layout_height="60dp"
-                android:id="@+id/test"
-                android:background="@drawable/button_menu_shape"
-                android:text="Test"
-                android:layout_below="@+id/spinner_list"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="20dp"/>
         </RelativeLayout>
     </RelativeLayout>
 
