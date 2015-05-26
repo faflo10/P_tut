@@ -89,7 +89,12 @@ public class Fill_list extends ActionBarActivity {
                             "answer TEXT);";
                     local.execSQL(query2);
 
-                    //TODO : fill the list created
+                    //TODO : A valider
+                    for(int j=0; j<questions.size(); j++) {
+                        String insert = "INSERT INTO \"" + title_table +
+                                "\" VALUES (null,\"" + questions.get(j) +
+                                "\",\"" + answers.get(j) + "\");";
+                    }
 
                     Toast.makeText(getApplicationContext(),
                             "List created",Toast.LENGTH_LONG).show();

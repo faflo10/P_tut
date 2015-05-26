@@ -28,6 +28,7 @@
         <activity android:name="p_tut.elethink_interface.Import_Export.Import_List_Search"/>
         <activity android:name="p_tut.elethink_interface.Import_Export.Import_List_Result"/>
         <activity android:name="p_tut.elethink_interface.Import_Export.Export_List_Result"/>
+        <activity android:name=".Playing"/>
 
     </application>
     <uses-permission android:name="android.permission.INTERNET" />

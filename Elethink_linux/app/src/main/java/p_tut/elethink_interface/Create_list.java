@@ -60,7 +60,6 @@ public class Create_list extends ActionBarActivity {
                         Cursor result = db.query("sqlite_master", new String[] {"name"}, "type=? AND name=?",
                                 new String[] {"table",name.getText().toString().replaceAll("\\s+$","")},null,null,null );
                         int verif = result.getCount();
-                        System.out.println(verif);
                         if(verif == 0) {    //Si aucune liste n'a le même nom
                             Intent change = new Intent(Create_list.this, Fill_list.class);
                             change.putExtra("title", name.getText().toString());
@@ -75,6 +74,7 @@ public class Create_list extends ActionBarActivity {
                             Toast.makeText(getApplicationContext(),"Nom de liste déjà pris !",
                                     Toast.LENGTH_SHORT).show();
                         }
+                        result.close();
                     } else {
                         Toast.makeText(getApplicationContext(), "Error while filling the keywords",
                                 Toast.LENGTH_SHORT).show();

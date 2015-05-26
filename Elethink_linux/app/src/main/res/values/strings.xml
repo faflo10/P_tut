@@ -38,5 +38,9 @@
     <string name="import_list">Import list</string>
     <string name="export_list">Export list</string>
     <string name="search_list">Search list</string>
-
+    <string name="playing">Playing…</string>
+    <string name="i_know">I know</string>
+    <string name="i_dont_know">I don\'t know</string>
+    <string name="right">I was right</string>
+    <string name="wrong">I was wrong</string>
 </resources>

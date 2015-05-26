@@ -68,7 +68,7 @@ public class Settings_menu extends ActionBarActivity{
                 } else {
                     int name_bd = queryName.getColumnIndex("name");
                     while(queryName.moveToNext()) {
-                        String query = "DROP TABLE " + queryName.getString(name_bd) + ";";
+                        String query = "DROP TABLE \"" + queryName.getString(name_bd) + "\";";
                         db.execSQL(query);
                     }
                     queryName.close();

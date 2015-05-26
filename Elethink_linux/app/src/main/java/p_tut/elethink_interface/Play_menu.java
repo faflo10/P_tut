@@ -88,8 +88,15 @@ public class Play_menu extends ActionBarActivity{
 
         launch.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Toast.makeText(Play_menu.this,"Objet selectionne :\n\t" + String.valueOf(spinner.getSelectedItem()),
-                        Toast.LENGTH_SHORT).show();
+                if(spinner.getSelectedItem() == null) {
+                    Toast.makeText(getApplicationContext(),"No list selected !",
+                            Toast.LENGTH_SHORT).show();
+                } else {
+                    String test = spinner.getSelectedItem().toString();
+                    test = test.substring(test.indexOf(" - ") + 3, test.length());
+                    Toast.makeText(Play_menu.this, test,
+                            Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
