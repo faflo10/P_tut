@@ -107,4 +107,9 @@ public class Manage_list extends ActionBarActivity {
             }
         });
     }
+
+    protected void onDestroy() {
+        super.onDestroy();
+        db.close();
+    }
 }

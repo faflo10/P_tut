@@ -1,6 +1,7 @@
 package p_tut.elethink_interface;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -94,6 +95,7 @@ public class Fill_list extends ActionBarActivity {
                         String insert = "INSERT INTO \"" + title_table +
                                 "\" VALUES (null,\"" + questions.get(j) +
                                 "\",\"" + answers.get(j) + "\");";
+                        local.execSQL(insert);
                     }
 
                     Toast.makeText(getApplicationContext(),
@@ -187,6 +189,11 @@ public class Fill_list extends ActionBarActivity {
 
         db = new LocalListDb(getBaseContext(),"list.db", null, 1);
         local = db.getWritableDatabase();
+    }
+
+    protected void onDestroy() {
+        super.onDestroy();
+        db.close();
     }
 }
 // st.replaceAll("\\s+$","")

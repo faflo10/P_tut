@@ -1,5 +1,6 @@
 package p_tut.elethink_interface;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.ActionBarActivity;
@@ -92,10 +93,11 @@ public class Play_menu extends ActionBarActivity{
                     Toast.makeText(getApplicationContext(),"No list selected !",
                             Toast.LENGTH_SHORT).show();
                 } else {
-                    String test = spinner.getSelectedItem().toString();
-                    test = test.substring(test.indexOf(" - ") + 3, test.length());
-                    Toast.makeText(Play_menu.this, test,
-                            Toast.LENGTH_SHORT).show();
+                    String name = spinner.getSelectedItem().toString();
+                    name = name.substring(name.indexOf(" - ") + 3, name.length());
+                    Intent goto_play = new Intent(Play_menu.this, Playing.class);
+                    goto_play.putExtra("name",name);
+                    startActivity(goto_play);
                 }
             }
         });

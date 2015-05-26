@@ -93,6 +93,11 @@ public class Settings_menu extends ActionBarActivity{
         return dialog;
     }
 
+    protected void onDestroy() {
+        super.onDestroy();
+        db.close();
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
