@@ -64,8 +64,7 @@
                 }
 
               }
-              $query0->closeCursor();
-              
+              $query0->closeCursor();              
             } 
 
             if ( empty($response["liste"]) ){

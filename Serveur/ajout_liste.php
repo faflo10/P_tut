@@ -28,6 +28,7 @@
         
         // tableau pour la réponse JSON
         $response = array();
+        //echo ( json_encode($response) ); 
      
         //ajouter la liste envoyé dans la base de donnée
         $query0=$bdd->prepare(' INSERT INTO LISTE( Titre, Date, Mot_clef1, Mot_clef2, Mot_clef3 ) VALUES(?,?,?,?,?) ');
@@ -36,6 +37,7 @@
 
             $response["valide"] = 0;
             $response["message"] = "L'indexation de la liste n'a pas été effectuée";
+            //echo ( json_encode($response) );
 
         }else{   
         
@@ -43,6 +45,7 @@
                     
                     $response["valide"] = 0;
                     $response["message"] = "L'indexation de la liste n'a pas été effectuée";
+                    //echo ( json_encode($response) );
 
                 }else{
 
