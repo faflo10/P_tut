@@ -52,8 +52,6 @@
                     $data1=$query1->fetch();
                     $identifiantListe=$data1['Identifiant_liste'];
                     $query1->closeCursor();
-
-                    $cpt=0;
                     
                     //inserer les mots composants la liste
                     for($i=0; $i<count($tabListe); $i=$i+2){
