@@ -34,7 +34,10 @@
                                      'reponse' => $data0['Reponse']
                                  );
             }
+<<<<<<< HEAD
             $query0->closeCursor();
+=======
+>>>>>>> serveur
                  
 
             if ( empty($mots) ){
