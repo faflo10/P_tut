@@ -16,7 +16,6 @@
 
         if ( !empty($_POST['motsSaisis']) ){
 
-<<<<<<< HEAD
             $tabMotsSaisis=explode("|",$_POST['motsSaisis']);
             
 
@@ -65,36 +64,8 @@
                 }
 
               }
-              $query0->closeCursor();
-              
+              $query0->closeCursor();              
             } 
-=======
-            /*
-                $tabNomListe=explode("|",$_SESSION['nomListe']);
-                enventuellement gérer le passage d'un tableau de mot
-            */
-
-
-            //chercher la liste envoyé dans la base de donnée
-            $query0=$bdd->prepare(
-                                    'SELECT * FROM LISTE
-                                    WHERE Titre LIKE ?
-                                          OR Mot_clef1 LIKE ?
-                                          OR Mot_clef2 LIKE ?
-                                          OR Mot_clef3 LIKE ?
-                                 ');
-            
-            $query0->execute( array('%'.$_POST['motsSaisis'].'%' , '%'.$_POST['motsSaisis'].'%' , '%'.$_POST['motsSaisis'].'%' ,
-                                    '%'.$_POST['motsSaisis'].'%' ) );
-
-            while( $data0=$query0->fetch() ){
-
-                  $response["liste"][]=array(
-                                              'idListe' => $data0['Identifiant_liste'],
-                                              'titre' => $data0['Titre']
-                                            );
-            }
->>>>>>> serveur
 
             if ( empty($response["liste"]) ){
 
