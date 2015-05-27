@@ -211,7 +211,8 @@ public class Export_List_Result extends ListActivity {
 
     class Envoiliste extends AsyncTask<String, String, String>{
 
-        JSONObject json;
+        JSONObject json=null;
+        Intent i = new Intent(getApplicationContext(), Import_Export_List.class);
 
         @Override
         protected void onPreExecute() {
@@ -226,7 +227,6 @@ public class Export_List_Result extends ListActivity {
             String tabListeCarac, tabListe;
             Cursor res0;
             List<NameValuePair> parametre = new ArrayList<NameValuePair>();
-            Intent i = new Intent(getApplicationContext(), Import_Export_List.class);
             JSONParser jParser = new JSONParser();
 
             res0 = local.query("\"" + titre + "\"", new String[]{TAG_QUESTION, TAG_REPONSE}, null,
@@ -242,7 +242,6 @@ public class Export_List_Result extends ListActivity {
                     if( k < ( res0.getCount()-1 ) ) tabListe+="|";
                 }
                 res0.close();
-                Log.d("tabListe",tabListe);
 
                 tabListeCarac = titre + "|" + motclef1 + "|" + motclef2 + "|" + motclef3;
 
@@ -264,12 +263,19 @@ public class Export_List_Result extends ListActivity {
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
             String message;
-
+            //commentaire
             pDialog.dismiss();
 
             try {
-                message = json.getString(TAG_MESSAGE);
-                Toast.makeText(getApplicationContext(), message,Toast.LENGTH_SHORT).show();
+                if (json == null) {
+                    i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(i);
+
+                }else{
+                    message = json.getString(TAG_MESSAGE);
+                    Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
+                }
+
             } catch (JSONException e) {
                 e.printStackTrace();
             }

@@ -143,6 +143,8 @@ public class Import_List_Result extends ListActivity {
      * */
     class RecherchesListes extends AsyncTask<String, String, String> {
 
+        JSONObject json=null;
+
         /**
          * Before starting background thread Show Progress Dialog
          * */
@@ -167,24 +169,12 @@ public class Import_List_Result extends ListActivity {
             List<NameValuePair> parametre = new ArrayList<NameValuePair>();
             parametre.add(new BasicNameValuePair("motsSaisis", motsSaisis));
             // Avoir la chaine de caractère JSON depuis l'urlVisualiserListe
-            Log.d("RechercheJSONlistes :", jParser.makeHttpRequest(urlVisualiserListe, "POST", parametre).toString());
-            JSONObject json = jParser.makeHttpRequest(urlVisualiserListe, "POST", parametre);
-
-            //Vérifier le log cat pour la réponse JSON
-            if (json!=null) Log.d( "RechercheJSONlistes :", json.toString() );
-            else {
-
-                Log.d( "RechercheJSONlistes :", "JSON NULL");
-                return null;
-
-            }
+            json = jParser.makeHttpRequest(urlVisualiserListe, "POST", parametre);
 
             try {
                 // Vérifier le TAG_VALIDE
-                int succes = json.getInt(TAG_VALIDE);
+                if (json != null && json.getInt(TAG_VALIDE) == 1) {
 
-                if (succes == 1) {
-                    // Présence de liste dans JSON
                     // Créer le tableau de listes
                     JSONlistes = json.getJSONArray(TAG_LISTE);
 
